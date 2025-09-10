@@ -7,6 +7,9 @@ body {
   color: #222;
   transition: background-color 0.5s ease;
   line-height: 1.6;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Header */
@@ -27,13 +30,15 @@ header:hover {
   background-color: #003366;
 }
 
-/* Main container spacing */
+/* Main container */
 main {
   margin-top: 1.5rem;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* Selector area with responsiveness */
@@ -51,18 +56,19 @@ main {
   font-weight: 600;
   font-size: 1.1rem;
   user-select: none;
+  white-space: nowrap;
 }
 
 select {
-  padding: 0.5rem 0.8rem;
-  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.1rem;
   border: 2px solid #004d99;
-  border-radius: 6px;
+  border-radius: 8px;
   outline-offset: 2px;
   outline-color: transparent;
-  transition: border-color 0.3s ease;
-  width: 140px;
   cursor: pointer;
+  min-width: 150px;
+  transition: border-color 0.3s ease;
 }
 
 select:focus {
@@ -74,8 +80,8 @@ select:focus {
 #contentArea {
   background: white;
   padding: 1.5rem 2rem;
-  border-radius: 10px;
-  min-height: 160px;
+  border-radius: 12px;
+  min-height: 180px;
   margin-bottom: 2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -91,7 +97,7 @@ select:focus {
 #quizArea {
   background: white;
   padding: 2rem 2.5rem;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 77, 153, 0.12),
     0 4px 6px -2px rgba(0, 77, 153, 0.06);
@@ -114,36 +120,38 @@ select:focus {
 }
 
 #quizOptions li {
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.2rem;
   background: #e6f0ff;
   margin-bottom: 0.75rem;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   color: #004d99;
-  box-shadow: 0 3px 6px rgba(0, 77, 153, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 77, 153, 0.1);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
     transform 0.2s ease;
   user-select: none;
 }
 
-#quizOptions li:hover {
+#quizOptions li:hover,
+#quizOptions li:focus-visible {
   background-color: #99ccff;
   color: #002855;
   box-shadow: 0 6px 12px rgba(0, 102, 255, 0.3);
-  transform: scale(1.03);
+  transform: scale(1.04);
+  outline: none;
 }
 
 #quizOptions li.selected {
   background: #004d99;
   color: white;
-  box-shadow: 0 6px 15px rgba(0, 77, 153, 0.6);
+  box-shadow: 0 6px 15px rgba(0, 77, 153, 0.7);
 }
 
 /* Action Buttons Container */
 .action-buttons {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.9rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
@@ -151,42 +159,49 @@ select:focus {
 
 /* Action Buttons */
 .action-btn {
-  padding: 0.75rem 1.25rem;
-  border: 2px solid #004d99;
+  padding: 0.85rem 1.3rem;
+  border: 2.5px solid #004d99;
   background: white;
   color: #004d99;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   transition: background-color 0.35s ease, color 0.35s ease,
     box-shadow 0.35s ease, transform 0.2s ease;
   user-select: none;
-  box-shadow: 0 3px 6px rgba(0, 77, 153, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 77, 153, 0.2);
+  min-width: 110px;
+  text-align: center;
 }
 
-.action-btn:hover {
+.action-btn:hover,
+.action-btn:focus-visible {
   background: #005cbf;
   color: #fff;
-  box-shadow: 0 6px 12px rgba(0, 92, 191, 0.5);
+  box-shadow: 0 8px 18px rgba(0, 92, 191, 0.65);
   transform: translateY(-3px);
+  outline: none;
 }
 
 .action-btn.active {
   background: #004d99;
   color: white;
-  box-shadow: 0 6px 15px rgba(0, 77, 153, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 77, 153, 0.8);
+  cursor: default;
 }
 
 /* Content Sections */
 .content-section {
   margin-top: 1.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.75rem 2.5rem;
   background: #f0f6ff;
-  border-radius: 8px;
+  border-radius: 10px;
   border-left: 6px solid #004d99;
-  box-shadow: inset 2px 0 4px rgba(0, 77, 153, 0.15);
+  box-shadow: inset 3px 0 6px rgba(0, 77, 153, 0.16);
   transition: background-color 0.3s ease;
+  font-size: 1.05rem;
+  color: #222f4f;
 }
 
 .content-section.hidden {
@@ -196,47 +211,52 @@ select:focus {
 /* Example Boxes */
 .example-box {
   background: #d9e8ff;
-  padding: 1.25rem 1.5rem;
-  margin: 1.25rem 0;
-  border-radius: 8px;
+  padding: 1.4rem 1.75rem;
+  margin: 1.5rem 0;
+  border-radius: 10px;
   border-left: 6px solid #0066cc;
-  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.12);
+  box-shadow: 0 5px 10px rgba(0, 102, 204, 0.15);
   transition: background-color 0.3s ease;
   font-weight: 600;
   color: #003366;
+  line-height: 1.5;
 }
 
-.example-box:hover {
+.example-box:hover,
+.example-box:focus-visible {
   background-color: #c0dbff;
+  outline: none;
 }
 
 /* Practice Problems */
 .practice-problem {
   background: white;
-  padding: 1.25rem 1.5rem;
-  margin: 1.25rem 0;
-  border-radius: 8px;
+  padding: 1.4rem 1.75rem;
+  margin: 1.5rem 0;
+  border-radius: 10px;
   border: 1px solid #cbd6e2;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s ease;
   font-weight: 600;
+  font-size: 1.05rem;
 }
 
-.practice-problem:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+.practice-problem:hover,
+.practice-problem:focus-within {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  outline: none;
 }
 
 /* Practice Input */
 .practice-input {
-  padding: 0.6rem 0.8rem;
-  border: 1.75px solid #004d99;
-  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  border: 2px solid #004d99;
+  border-radius: 8px;
   margin: 0.75rem 0 0.5rem 0;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   width: 100%;
-  max-width: 320px;
+  max-width: 360px;
   transition: border-color 0.3s ease;
-  outline-color: transparent;
 }
 
 .practice-input:focus {
@@ -249,43 +269,46 @@ select:focus {
   background: #28a745;
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
   cursor: pointer;
   margin: 0.5rem 0 0 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   transition: background-color 0.3s ease;
   user-select: none;
-  box-shadow: 0 3px 8px rgba(40, 167, 69, 0.6);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.65);
 }
 
-.check-answer-btn:hover {
+.check-answer-btn:hover,
+.check-answer-btn:focus-visible {
   background: #218838;
+  outline: none;
 }
 
 /* Feedback Messages */
 .answer-feedback {
   margin: 0.6rem 0 0 0;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   user-select: none;
+  max-width: 360px;
 }
 
 .correct {
   background: #d4edda;
   color: #155724;
-  border: 1.5px solid #c3e6cb;
-  box-shadow: inset 0 0 8px #a9d5a3;
+  border: 2px solid #c3e6cb;
+  box-shadow: inset 0 0 10px #a9d5a3;
 }
 
 .incorrect {
   background: #f8d7da;
   color: #721c24;
-  border: 1.5px solid #f5c6cb;
-  box-shadow: inset 0 0 8px #eaa1a8;
+  border: 2px solid #f5c6cb;
+  box-shadow: inset 0 0 10px #eaa1a8;
 }
 
 /* Quiz Header */
@@ -299,6 +322,7 @@ select:focus {
   font-weight: 700;
   color: #004080;
   user-select: none;
+  font-size: 1.15rem;
 }
 
 /* Back Button */
@@ -307,29 +331,32 @@ select:focus {
   color: white;
   border: none;
   padding: 0.6rem 1.1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 700;
   transition: background-color 0.3s ease;
   user-select: none;
-  box-shadow: 0 3px 8px rgba(108, 117, 125, 0.7);
+  box-shadow: 0 4px 10px rgba(108, 117, 125, 0.8);
 }
 
-.back-btn:hover {
+.back-btn:hover,
+.back-btn:focus-visible {
   background: #495057;
+  outline: none;
 }
 
 /* Quiz Progress */
 #quizProgress {
   font-weight: 700;
   color: #004d99;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  font-size: 1.1rem;
 }
 
 /* Quiz Controls */
 .quiz-controls {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
@@ -339,13 +366,14 @@ select:focus {
 #quizSummary {
   background: #d1ecf1;
   padding: 2rem 3rem;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   border: 2px solid #bee5eb;
   font-weight: 700;
   color: #0c5460;
   user-select: none;
-  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.25);
+  font-size: 1.1rem;
 }
 
 /* Retake Quiz Button */
@@ -353,54 +381,143 @@ select:focus {
   background: #007bff;
   color: white;
   border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
+  padding: 0.85rem 2.25rem;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   transition: background-color 0.3s ease;
   user-select: none;
-  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.7);
+  box-shadow: 0 5px 18px rgba(0, 123, 255, 0.8);
 }
 
-#retakeQuiz:hover {
+#retakeQuiz:hover,
+#retakeQuiz:focus-visible {
   background: #0056b3;
+  outline: none;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1.25rem;
-  font-size: 0.95rem;
-  color: #666666;
-  border-top: 1.5px solid #ddd;
+  padding: 1.5rem 1rem;
+  font-size: 1rem;
+  color: #555;
+  border-top: 1.75px solid #ddd;
   font-weight: 500;
   user-select: none;
 }
 
-/* Responsive Enhancements */
-@media (max-width: 640px) {
-  .selector {
-    flex-direction: column;
-    align-items: flex-start;
+/* Responsive Enhancements for Mobile */
+
+/* Small devices */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
   }
+
+  header {
+    font-size: 1.5rem;
+    padding: 1.25rem 1rem;
+  }
+
+  main {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   select {
-    width: 100%;
+    min-width: 120px;
+    font-size: 1rem;
   }
-  .action-buttons {
-    justify-content: flex-start;
+
+  .action-btn {
+    min-width: 100px;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
   }
+
   #contentArea,
   #quizArea {
     padding: 1rem 1.25rem;
   }
+
   .content-section,
   .example-box,
   .practice-problem {
     padding: 1rem 1.25rem;
+    font-size: 1rem;
   }
+
   #quizSummary {
-    padding: 1.5rem 1.75rem;
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
+  }
+
+  #retakeQuiz {
+    font-size: 1.05rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  header {
+    font-size: 1.3rem;
+  }
+
+  .selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  select {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .action-buttons {
+    justify-content: stretch;
+  }
+
+  .action-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  #contentArea,
+  #quizArea {
+    padding: 0.85rem 1rem;
+  }
+
+  .content-section,
+  .example-box,
+  .practice-problem {
+    padding: 0.85rem 1rem;
+  }
+
+  #quizSummary {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  #retakeQuiz {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  #quizOptions li {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .practice-input {
+    font-size: 1rem;
+    max-width: 100%;
   }
 }
