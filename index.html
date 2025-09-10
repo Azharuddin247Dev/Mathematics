@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WBBSE Math Learning App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Mathematics Learning App for Classes V to VIII</h1>
+  </header>
+
+  <main>
+    <section class="selector">
+      <label for="classSelect">Select Class:</label>
+      <select id="classSelect">
+        <option value="5">Class V</option>
+        <option value="6">Class VI</option>
+        <option value="7">Class VII</option>
+        <option value="8">Class VIII</option>
+      </select>
+
+      <label for="topicSelect">Select Topic:</label>
+      <select id="topicSelect">
+        <!-- Filled dynamically -->
+      </select>
+    </section>
+
+    <section id="contentArea">
+      <!-- Topic content will be loaded here -->
+      <div id="topicContent">
+        <h2>Select a topic to begin learning</h2>
+        <p>Choose a class and topic from the dropdowns above to start your mathematics journey.</p>
+      </div>
+
+      <div id="topicActions" class="hidden">
+        <div class="action-buttons">
+          <button id="studyBtn" class="action-btn active">📚 Study Notes</button>
+          <button id="examplesBtn" class="action-btn">💡 Examples</button>
+          <button id="practiceBtn" class="action-btn">✏️ Practice</button>
+          <button id="quizBtn" class="action-btn">🎯 Take Quiz</button>
+        </div>
+
+        <div id="studySection" class="content-section">
+          <!-- Study notes content -->
+        </div>
+
+        <div id="examplesSection" class="content-section hidden">
+          <!-- Examples content -->
+        </div>
+
+        <div id="practiceSection" class="content-section hidden">
+          <!-- Practice problems -->
+        </div>
+      </div>
+    </section>
+
+    <section id="quizArea" class="hidden">
+      <h2>📝 Quiz Time!</h2>
+      <div id="quizHeader">
+        <button id="backToTopic" class="back-btn">← Back to Topic</button>
+        <div id="quizProgress">Question 1 of 5</div>
+      </div>
+      <div id="quizQuestion"></div>
+      <ul id="quizOptions"></ul>
+      <div class="quiz-controls">
+        <button id="submitAnswer">Submit Answer</button>
+        <button id="nextQuestion" class="hidden">Next Question</button>
+      </div>
+      <div id="quizResult"></div>
+      <div id="quizSummary" class="hidden">
+        <h3>Quiz Complete!</h3>
+        <div id="finalScore"></div>
+        <button id="retakeQuiz">Retake Quiz</button>
+      </div>
+    </section>
+
+    <section id="progressArea">
+      <h2>Progress Dashboard</h2>
+      <div id="progressDetails">Select class and topic to see progress.</div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© 2025 WBBSE Math Learning</small>
+  </footer>
+
+  <!-- <script src="app.js"></script> -->
+
+  <script src="class5.js" defer></script>
+  <script src="class6.js" defer></script>
+  <script src="class7.js" defer></script>
+  <script src="class8.js" defer></script>
+  <script src="app.js" defer></script>
+
+</body>
+
+</html>
