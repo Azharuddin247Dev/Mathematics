@@ -6,18 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WBBSE Math Learning App</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XBVRH6Y8E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4XBVRH6Y8E');
-</script>
 </head>
 
 <body>
+  <!-- Theme Controls -->
+  <div class="theme-controls">
+    <button class="updates-btn" onclick="showUpdatesInfo()" title="What's New">
+      <span class="updates-icon">🆕</span>
+      <span class="updates-text">Updates</span>
+    </button>
+    <button class="theme-btn light" onclick="setTheme('light')" title="Light Theme">☀️</button>
+    <button class="theme-btn dark" onclick="setTheme('dark')" title="Dark Theme">🌙</button>
+    <button class="theme-btn colorful" onclick="setTheme('colorful')" title="Colorful Theme">🎨</button>
+  </div>
+
+  
   <header>
     <h1>Mathematics Learning App for Classes V to VIII</h1>
   </header>
@@ -94,8 +97,7 @@
   </main>
 
   <footer>
-    <small>© 2025 WBBSE Math Learning</small> <br>
-    <p>Created by Azharuddin Sir</p>
+    <small>© 2025 WBBSE Math Learning</small>
   </footer>
 
   <!-- <script src="app.js"></script> -->
