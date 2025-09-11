@@ -433,5 +433,242 @@ function setupEventListeners() {
   retakeQuiz.onclick = retakeQuizHandler;
 }
 
+// Theme Management
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('preferred-theme', theme);
+  
+  // Add visual feedback
+  const themeButtons = document.querySelectorAll('.theme-btn');
+  themeButtons.forEach(btn => btn.style.transform = 'scale(1)');
+  
+  const activeBtn = document.querySelector(`.theme-btn.${theme}`);
+  if (activeBtn) {
+    activeBtn.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+      activeBtn.style.transform = 'scale(1)';
+    }, 200);
+  }
+}
+
+// Load saved theme
+function loadTheme() {
+  const savedTheme = localStorage.getItem('preferred-theme') || 'light';
+  setTheme(savedTheme);
+}
+
+// Enhanced initialization with dynamic features
+function initDynamicFeatures() {
+  loadTheme();
+}
+
+// Show updates information modal
+function showUpdatesInfo() {
+  // Create modal if it doesn't exist
+  let modal = document.getElementById('updatesModal');
+  if (!modal) {
+    modal = createUpdatesModal();
+  }
+  
+  // Show modal
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Close updates modal
+function closeUpdatesModal() {
+  const modal = document.getElementById('updatesModal');
+  if (modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+}
+
+// Create updates modal
+function createUpdatesModal() {
+  const modal = document.createElement('div');
+  modal.id = 'updatesModal';
+  modal.className = 'updates-modal';
+  
+  modal.innerHTML = `
+    <div class="updates-content">
+      <div class="updates-header">
+        <h2 class="updates-title">
+          <span>🎉</span>
+          What's New in Dynamic Looks
+        </h2>
+        <button class="updates-close" onclick="closeUpdatesModal()">×</button>
+      </div>
+      
+      <ul class="updates-list">
+        <li class="updates-item">
+          <div class="updates-item-icon">🎨</div>
+          <div class="updates-item-content">
+            <h4>Dynamic Theme System</h4>
+            <p>Switch between Light, Dark, and Colorful themes instantly! Each theme provides a unique visual experience with custom colors, backgrounds, and animations.</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">✨</div>
+          <div class="updates-item-content">
+            <h4>Enhanced Animations</h4>
+            <p>Experience smooth transitions, floating background particles, shimmer effects on hover, and beautiful slide-in animations throughout the app.</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">🎯</div>
+          <div class="updates-item-content">
+            <h4>Interactive Elements</h4>
+            <p>All buttons and cards now feature dynamic hover effects, scaling animations, and visual feedback to make your learning experience more engaging.</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">🎊</div>
+          <div class="updates-item-content">
+            <h4>Celebration Effects</h4>
+            <p>Achieve excellent quiz scores and enjoy colorful particle animations that celebrate your success with flying confetti effects!</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">📱</div>
+          <div class="updates-item-content">
+            <h4>Responsive Design</h4>
+            <p>All new features work seamlessly across desktop, tablet, and mobile devices with optimized layouts and touch-friendly interactions.</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">🔔</div>
+          <div class="updates-item-content">
+            <h4>Smart Notifications</h4>
+            <p>Stay informed with beautiful notification banners that slide in smoothly and provide helpful updates about your learning progress.</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">⚡</div>
+          <div class="updates-item-content">
+            <h4>Performance Optimized</h4>
+            <p>All animations use CSS transforms and GPU acceleration for smooth 60fps performance, ensuring a lag-free experience on all devices.</p>
+          </div>
+        </li>
+        
+        <li class="updates-item">
+          <div class="updates-item-icon">🎮</div>
+          <div class="updates-item-content">
+            <h4>Interactive Features</h4>
+            <p>Discover hidden keyboard shortcuts (Ctrl+U for custom messages, Ctrl+Shift+A for admin panel) and enjoy gamified learning elements.</p>
+          </div>
+        </li>
+      </ul>
+      
+      <div class="updates-version">Version 2.0 - Dynamic Edition</div>
+    </div>
+  `;
+  
+  // Close modal when clicking outside
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeUpdatesModal();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+      closeUpdatesModal();
+    }
+  });
+  
+  document.body.appendChild(modal);
+  return modal;
+}
+
+// Add floating animation to action buttons
+function addButtonAnimations() {
+  const actionButtons = document.querySelectorAll('.action-btn');
+  actionButtons.forEach((btn, index) => {
+    btn.style.animationDelay = `${index * 0.1}s`;
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transform = 'translateY(-3px) scale(1.05)';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+}
+
+// Add particle effect on quiz completion
+function addParticleEffect() {
+  const particles = [];
+  const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'];
+  
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.style.position = 'fixed';
+    particle.style.width = '6px';
+    particle.style.height = '6px';
+    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.zIndex = '9999';
+    particle.style.left = Math.random() * window.innerWidth + 'px';
+    particle.style.top = window.innerHeight + 'px';
+    
+    document.body.appendChild(particle);
+    particles.push(particle);
+    
+    // Animate particle
+    const animation = particle.animate([
+      { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
+      { transform: `translateY(-${window.innerHeight + 100}px) rotate(360deg)`, opacity: 0 }
+    ], {
+      duration: Math.random() * 3000 + 2000,
+      easing: 'ease-out'
+    });
+    
+    animation.onfinish = () => {
+      particle.remove();
+    };
+  }
+}
+
+// Enhanced quiz completion with celebration
+function showQuizSummaryEnhanced() {
+  const percentage = Math.round((quizScore / currentQuizData.length) * 100);
+  let message = '';
+  
+  if (percentage >= 80) {
+    message = '🎉 Excellent work!';
+    addParticleEffect(); // Add celebration effect
+  } else if (percentage >= 60) {
+    message = '👍 Good job!';
+  } else {
+    message = '📚 Keep practicing!';
+  }
+  
+  finalScore.innerHTML = `
+    <h4>${message}</h4>
+    <p>You scored ${quizScore} out of ${currentQuizData.length} (${percentage}%)</p>
+  `;
+  
+  quizSummary.classList.remove('hidden');
+  quizQuestion.style.display = 'none';
+  quizOptions.style.display = 'none';
+  document.querySelector('.quiz-controls').style.display = 'none';
+  quizResult.style.display = 'none';
+}
+
 // Initialize the app when page loads
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+  initDynamicFeatures();
+  addButtonAnimations();
+  
+  // Override the original showQuizSummary function
+  window.showQuizSummary = showQuizSummaryEnhanced;
+});
